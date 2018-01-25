@@ -1,0 +1,4 @@
+MOV R0, #2
+MOV R1, #20
+ADD R3, R1, R0, LSL #3
+ADD R3, R1, R1, ROR #4

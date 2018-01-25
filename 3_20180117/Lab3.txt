@@ -1,0 +1,11 @@
+Discussion:
+	Software Interrupts
+
+Assignment 1 - Part 1 - File handling using ARM ISA
+Deadline : 24 Jan 2018
+	1.	Write an ARM assembly program to WRITE to a file. Write 2 or more lines of text to this file. Make 
+		sure you close the file after you write to it.
+	2.	Write an ARM assembly program to read from the file that you created in Problem 1.
+		Open this file in READ mode, READ and dump its contents to STDOUT.
+	3.	Write an ARM assembly program to receive 3 different Integer inputs from STDIN. After receiving all 
+		the three values print them on STDOUT.
