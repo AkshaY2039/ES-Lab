@@ -1,5 +1,7 @@
-Discussion:
-	
+Embedded Systems Lab 4 : 24 Jan 2018
+
+Discussions:
+		
 
 Assignment 1 - Part 2 - Timer
 Deadline : 31 Jan 2018
@@ -8,3 +10,4 @@ Deadline : 31 Jan 2018
 		sub-routine “Stimer” that can create 1000(approximately)Clock cycles delay. Using this subroutine 
 		write another sub-routine “Ltimer” that can create delay which are multiples of 10000 (approximately) 
 		cycles. The Ltimer is simple and no need to other timers.The Ltimer can be used to create periodic scan of I/O devices or any periodic activity.
+	Extra.	Using LogiSim Build a Counter for SAP extending which to a ARM like Program Counter.

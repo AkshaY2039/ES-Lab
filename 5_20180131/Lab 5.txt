@@ -1,0 +1,11 @@
+Embedded Systems Lab 5 : 31 Jan 2018
+
+Discussions:
+	
+
+Assignment 1 - Part 3 - Plugin and Timer
+Deadline : 21 Feb 2018
+	5.	Write ARM assembly code that can make the two red LEDs in Embest Plugin of ARMSIM to glow alternatively at observable 
+		rate. Your code should be user configurable for various rate. User timer developed in problem 4.
+	6.	Write ARM assembly code that can make the 8-segment display to go from 0 to 9 at an observable rate. Your code should be 
+		user configurable for various rate.

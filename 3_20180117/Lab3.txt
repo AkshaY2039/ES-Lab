@@ -1,4 +1,6 @@
-Discussion:
+Embedded Systems Lab 3 : 17 Jan 2018
+
+Discussions:
 	Software Interrupts
 
 Assignment 1 - Part 1 - File handling using ARM ISA

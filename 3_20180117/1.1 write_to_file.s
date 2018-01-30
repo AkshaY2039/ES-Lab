@@ -14,6 +14,7 @@ Embedded Systems Lab 3 - 17-01-2018
 			.align
 	STRING2: .asciz "This is the line 2. Ends the file."					;String 2 to be written
 			.align
+	O_FILE_HANDLE: .word 0													;Declaring location for filehandle
 
 	/*directives definition*/
 	.equ Open_File, 0x66		;SWI_Open to open file
@@ -26,10 +27,14 @@ LDR R0, =O_FILE			;Load output file name into R0
 MOV R1, #FILE_MODE		;Move immediate 1 into R1, since 1 represents OUTPUT mode, 0 represents INPUT mode.
 
 SWI Open_File			;Open file based on filename in R0 and mode in R1 (SWI_Open)
+	LDR R5, =O_FILE_HANDLE	;Assign a the address 0
+	STR R0, [R5]			;Store filehandle to R5
 	LDR R1, =STRING1		;Load STRING1 into R1
 	SWI Print_String		;Write the Contents of R1 to file open from R0 (SWI_PrStr)
 	LDR R1, =STRING2		;Load STRING2 into R1
 	SWI Print_String		;Write the Contents of R1 to file open from R0 (SWI_PrStr)
+	LDR R0, =O_FILE_HANDLE	;Pointing R0 to filehandle
+	LDR R0, [R0]			;Load the filehandle back to R0
 SWI Close_File			;Close File (SWI_Close) R0 as file handle
 
 SWI Halt_Exec			;Halt execultion (SWI_Exit)
