@@ -13,3 +13,4 @@
 *_uvopt.bak
 *_uvproj.bak
 *.lst
+*.dep
