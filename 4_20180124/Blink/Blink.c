@@ -1,4 +1,20 @@
 /*Using Keil uVision 4 and Tiva TM4C123GH6PM*/
+
+// LaunchPad built-in hardware
+// red LED connected to PF1 on the Launchpad
+// blue LED connected to PF2 on the Launchpad
+// green LED connected to PF3 on the Launchpad
+
+// Color    LED(s) PortF
+// dark     ---    0
+// red      R--    0x02
+// blue     --B    0x04
+// green    -G-    0x08
+// yellow   RG-    0x0A
+// sky blue -GB    0x0C
+// white    RGB    0x0E
+// pink     R-B    0x06
+
 #include "tm4c123gh6pm.h"
 
 void PortF_Init(void)
@@ -54,13 +70,3 @@ int main(void)
 		Delay();
 	}
 }
-
-// Color    LED(s) PortF
-// dark     ---    0
-// red      R--    0x02
-// blue     --B    0x04
-// green    -G-    0x08
-// yellow   RG-    0x0A
-// sky blue -GB    0x0C
-// white    RGB    0x0E
-// pink     R-B    0x06

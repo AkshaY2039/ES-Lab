@@ -1,0 +1,15 @@
+# Keil Files
+*.axf
+*.build_log.htm
+*.crf
+*.d
+*.htm
+*.lnp
+*.map
+*.o
+*.uvgui.dcrus
+*.uvgui_dcrus.bak
+*.uvopt
+*_uvopt.bak
+*_uvproj.bak
+*.lst
