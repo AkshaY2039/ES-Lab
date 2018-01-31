@@ -12,7 +12,7 @@ Embedded Systems Lab 4 - 24-01-2018
 
 /*DATA SECTION*/
 	/*labels being used*/
-	.equ STCounter, 500		;Short timer counter as 500 (as there are 2 operations assumed to take 2 cycles)
+	.equ STCounter, 250		;Short timer counter as 250 (as SUB takes 1 cycle and Branch takes 3 cycles)
 	.equ LTCounter, 10		;Large timer counter as 10 (multiple of STCounter)
 	.equ HaltExec, 0x11		;SWI code for Halt Execution
 
