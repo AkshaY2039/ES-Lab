@@ -1,7 +1,26 @@
 Embedded Systems Lab 3 : 17 Jan 2018
 
 Discussions:
-	Software Interrupts
+	Software Interrupts: SWI are kind of System calls in ARM which help with I/O operations using plugin in ARMSim
+	Syntax for SWI:	SWI <OP_CODE>;
+					e.g. SWI 0x00
+	Following are the predefined codes for different SWI in ARMSim:
+	|	OP_CODE	|				Description			|		Inputs		|		Outputs		|	EQU(used in samples)	|
+	|										BASIC SWI OPERATIONS FOR I/O in ARMSim										|
+	|	0x00	| Display Character to STDOUT		| R0: The Character	| Char on STDOUT	|		SWI_PrChr			|
+	|	0x02	| Display String to STDOUT			| R0: address of 	|					|							|
+	|			|									| NULL terminated	| String on STDOUT	|		SWI_PrStr			|
+	|			|									| ASCII string		|					|							|
+	|	0x11	| Halt Execution					|					|					|		SWI_Exit			|
+	|	0x12	| Allocate block of memory on heap	| R0: size in Bytes	| R0: Addr of block	|		SWI_MeAlloc			|
+	|	0x13	| Deallocate all heap blocks		|					|					|		SWI_DAlloc			|
+	|	0x66	|
+	|	0x68	|
+	|	0x69	|
+	|	0x6a	|
+	|	0x6b	|
+	|	0x6c	|
+	|	0x6d	|
 
 Assignment 1 - Part 1 - File handling using ARM ISA
 Deadline : 24 Jan 2018
