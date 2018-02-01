@@ -28,7 +28,7 @@ void PortD_Init(void)
 void Delay(void)
 {
 	unsigned long volatile time;
-	time = 1454480;
+	time = second;
 	while(time)
 		time--;
 }
