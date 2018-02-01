@@ -15,8 +15,9 @@
 // white    RGB    0x0E
 // pink     R-B    0x06
 
-#include "tm4c123gh6pm.h"
+#include "..\..\TM4C_Common\tm4c123gh6pm.h"
 
+/*Function for Initializing Port F*/
 void PortF_Init(void)
 {
 	volatile unsigned long delay;
@@ -45,7 +46,7 @@ void Delay(void)
 
 int main(void)
 {
-	PortF_Init();	// make PF1 out (PF1 built-in LED)
+	PortF_Init();	//Port F Initialziation
 	while(1)
 	{
 		/*Led = GPIO_PORTF_DATA_R;	// read previous
