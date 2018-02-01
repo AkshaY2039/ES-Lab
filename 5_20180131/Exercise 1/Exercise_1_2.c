@@ -7,13 +7,32 @@
 
 // LaunchPad built-in hardware
 // SW2 right switch is negative logic PF0 on the Launchpad
-// red LED connected to PF1 on the Launchpad
-// blue LED connected to PF2 on the Launchpad
-// green LED connected to PF3 on the Launchpad
+// RED LED connected to PF1 on the Launchpad
+// BLUE LED connected to PF2 on the Launchpad
+// GREEN LED connected to PF3 on the Launchpad
 // SW1 left switch is negative logic PF4 on the Launchpad
 
+// Color    LED(s) PortF
+// DARK     ---    0
+// RED      R--    0x02
+// BLUE     --B    0x04
+// GREEN    -G-    0x08
+// YELLOW   RG-    0x0A
+// SKY BLUE -GB    0x0C
+// WHITE    RGB    0x0E
+// PINK     R-B    0x06
+
 #include "..\..\TM4C_Common\tm4c123gh6pm.h"
-#define second 1454480 //1 second = 1454480
+#define second 1454480	//1 second = 1454480
+#define DARK	0x00	//DARK for LEDs connected to PortF
+#define RED		0x02	//RED for LEDs connected to PortF
+#define BLUE	0x04	//BLUE for LEDs connected to PortF
+#define PINK	0x06	//PINK for LEDs connected to PortF
+#define GREEN	0x08	//GREEN for LEDs connected to PortF
+#define YELLOW	0x0A	//YELLOW for LEDs connected to PortF
+#define SKYBLUE	0x0C	//SKYBLUE for LEDs connected to PortF
+#define WHITE	0x0E	//WHITE for LEDs connected to PortF
+
 
 /*Function for Initializing Port F*/
 void PortF_Init(void)
@@ -62,17 +81,17 @@ int main(void)
 	/*Controling PD0 with SW1 & PD3 with SW2*/
 	while(1)
 	{
-		if(GPIO_PORTF_DATA_R == 0x10)
+		if(GPIO_PORTF_DATA_R == 0x10) //if SW1 is Pressed
 		{
-			GPIO_PORTD_DATA_R = 0x01;
-			GPIO_PORTF_DATA_R = 0x08;
+			GPIO_PORTD_DATA_R = 0x01; //PD0 to be turned ON
+			GPIO_PORTF_DATA_R = BLUE; //Checking Switch 1 with BLUE color LED
 			Delay();
 		}
 		else
-			if(GPIO_PORTF_DATA_R == 0x01)
+			if(GPIO_PORTF_DATA_R == 0x01) //if SW2 is Pressed
 			{
-				GPIO_PORTD_DATA_R = 0x08;
-				GPIO_PORTF_DATA_R = 0x04;
+				GPIO_PORTD_DATA_R = 0x08; //PD3 to be turned ON
+				GPIO_PORTF_DATA_R = GREEN; //Checking Switch 2 with GREEN color LED
 				Delay();
 			}
 		GPIO_PORTF_DATA_R = 0x11;
