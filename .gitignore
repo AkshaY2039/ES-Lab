@@ -14,3 +14,8 @@
 *_uvproj.bak
 *.lst
 *.dep
+
+# Notes for Time Being
+*.ppt
+*.pptx
+*.pdf
