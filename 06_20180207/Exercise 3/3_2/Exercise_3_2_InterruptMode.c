@@ -9,6 +9,14 @@
 #include "..\..\..\TM4C_Common\PLL.h"
 
 #define BLUE	0x04	//BLUE for LEDs connected to PortF
+#define second_0_2	16000000	//ticks for 0.2s
+
+unsigned long delay_period = second_0_2;	//delay period to be used
+unsigned long time_grad = 2000000;			//ticks by which delay to be changed at a time
+unsigned long up_lim = 5*second_0_2;		//upper limit to change sign with
+unsigned long lo_lim = second_0_2/5;		//lower limit to change sign with
+int pulse_length = 2;			//number of pulses for each time period
+int i;							//loop variable inside
 
 /*Function Prototypes here or say function Declarations*/
 void PortF_Init(void);				// function for Initialization of Port F
@@ -21,7 +29,8 @@ int main(void)
 	PLL_Init();
 	PortF_Init();
 	SysInit();
-	SysLoad(40000); //Reload Systick Timer with the value
+	i = 2*pulse_length;
+	SysLoad(delay_period); //Reload Systick Timer with the value
 
 	while(1);
 }
@@ -61,5 +70,14 @@ void SysInit(void)
 /*Systick Handler Definition - Interrupt Routine*/
 void SysTick_Handler(void)
 {
+	i = i - 1;
 	GPIO_PORTF_DATA_R ^= BLUE; //Blink LED with color BLUE
+	if(i == 0)
+	{
+		i = 2*pulse_length;
+		delay_period -= time_grad;
+		if(delay_period <= lo_lim)
+			delay_period = up_lim;
+		SysLoad(delay_period); //Reload Systick Timer with the value
+	}
 }

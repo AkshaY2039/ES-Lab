@@ -16,7 +16,7 @@ unsigned long delay_period = second_0_2;	//delay period to be used
 unsigned long time_grad = 2000000;			//ticks by which delay to be changed at a time
 unsigned long up_lim = 5*second_0_2;		//upper limit to change sign with
 unsigned long lo_lim = second_0_2/5;		//lower limit to change sign with
-int pulse_length = 5;			//number of pulses for each time period
+int pulse_length = 2;			//number of pulses for each time period
 int i;							//loop variable
 
 /*Function Prototypes here or say function Declarations*/
@@ -40,7 +40,7 @@ int main(void)
 		}
 		delay_period -= time_grad;
 		if(delay_period <= lo_lim)
-			delay_period = up_lim;			
+			delay_period = up_lim;
 	}
 }
 
