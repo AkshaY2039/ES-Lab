@@ -23,6 +23,7 @@
 // PINK     R-B    0x06
 
 #include "..\..\TM4C_Common\tm4c123gh6pm.h"
+
 #define second 1454480	//1 second = 1454480
 #define DARK	0x00	//DARK for LEDs connected to PortF
 #define RED		0x02	//RED for LEDs connected to PortF
@@ -32,7 +33,6 @@
 #define YELLOW	0x0A	//YELLOW for LEDs connected to PortF
 #define SKYBLUE	0x0C	//SKYBLUE for LEDs connected to PortF
 #define WHITE	0x0E	//WHITE for LEDs connected to PortF
-
 
 /*Function for Initializing Port F*/
 void PortF_Init(void)
@@ -65,6 +65,7 @@ void PortD_Init(void)
 	GPIO_PORTD_DEN_R = 0x09;			// 7) enable digital I/O on PD0, PD3
 }
 
+/*delay function*/
 void Delay(void)
 {
 	unsigned long volatile time;
@@ -73,6 +74,7 @@ void Delay(void)
 		time--;
 }
 
+/*main function*/
 int main(void)
 {
 	PortF_Init(); //Port F Initialziation
@@ -94,6 +96,6 @@ int main(void)
 				GPIO_PORTF_DATA_R = GREEN; //Checking Switch 2 with GREEN color LED
 				Delay();
 			}
-		GPIO_PORTF_DATA_R = 0x11;
+		GPIO_PORTF_DATA_R = 0x11; //Reinitializing PortF data pins to 0x11
 	}
 }

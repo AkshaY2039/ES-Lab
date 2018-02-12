@@ -9,6 +9,7 @@
 // green LED connected to PF3 on the Launchpad
 
 #include "..\..\TM4C_Common\tm4c123gh6pm.h"
+
 #define second 1454480 //1 second = 1454480
 
 /*Function for Initializing Port D*/
@@ -25,6 +26,7 @@ void PortD_Init(void)
 	GPIO_PORTD_DEN_R = 0x09;			// 7) enable digital I/O on PD0, PD3
 }
 
+/*delay function*/
 void Delay(void)
 {
 	unsigned long volatile time;
@@ -33,6 +35,7 @@ void Delay(void)
 		time--;
 }
 
+/*main function*/
 int main(void)
 {
 	PortD_Init(); //Port D Initialziation

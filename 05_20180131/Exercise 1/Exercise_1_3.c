@@ -25,7 +25,8 @@
 // PINK     R-B    0x06
 
 #include "..\..\TM4C_Common\tm4c123gh6pm.h"
-#define second 1454480	//1 second = 1454480
+
+#define second	1454480	//1 second = 1454480
 #define DARK	0x00	//DARK for LEDs connected to PortF
 #define RED		0x02	//RED for LEDs connected to PortF
 #define BLUE	0x04	//BLUE for LEDs connected to PortF
@@ -34,7 +35,6 @@
 #define YELLOW	0x0A	//YELLOW for LEDs connected to PortF
 #define SKYBLUE	0x0C	//SKYBLUE for LEDs connected to PortF
 #define WHITE	0x0E	//WHITE for LEDs connected to PortF
-
 
 /*Function for Initializing Port F*/
 void PortF_Init(void)
@@ -62,39 +62,50 @@ void PortD_Init(void)
 	// only PF0 needs to be unlocked, other bits can't be locked
 	GPIO_PORTD_AMSEL_R &= ~0x00;		// 3) disable analog on PD
 	GPIO_PORTD_PCTL_R = 0x00000000;		// 4) PCTL GPIO on PD
-	GPIO_PORTD_DIR_R |= 0x09;			// 5) PD30, PD3 as output
-	GPIO_PORTD_AFSEL_R &= ~0x09;		// 6) disable alt funct on PD0, PD3
-	GPIO_PORTD_DEN_R = 0x09;			// 7) enable digital I/O on PD0, PD3
+	GPIO_PORTD_DIR_R |= 0x0C;			// 5) PD30, PD3 as output
+	GPIO_PORTD_AFSEL_R &= ~0x0C;		// 6) disable alt funct on PD2, PD3
+	GPIO_PORTD_DEN_R = 0x0C;			// 7) enable digital I/O on PD2, PD3
 }
 
+/*delay function*/
 void Delay(void)
 {
 	unsigned long volatile time;
-	time = second;
+	time = second/5;
 	while(time)
 		time--;
 }
 
+/*main function*/
 int main(void)
 {
 	PortF_Init(); //Port F Initialziation
 	PortD_Init(); //Port D Initialziation
 
-	/*Controling PD0 with SW1 & PD3 with SW2*/
+	/*Controling PD2 with SW1 & PD3 with SW2*/
 	while(1)
 	{
-		if(GPIO_PORTF_DATA_R == 0x10) //if SW1 is Pressed
+		if((GPIO_PORTF_DATA_R &= 0x11) == 0x00) //if SW1 & SW2 are Pressed
 		{
-			GPIO_PORTD_DATA_R = 0x01; //PD0 to be turned ON
-			GPIO_PORTF_DATA_R = BLUE; //Checking Switch 1 with BLUE color LED
+			GPIO_PORTD_DATA_R |= 0x0C; //PD2 & PD3 to be turned ON
+			GPIO_PORTF_DATA_R |= BLUE ; //Checking Switch 1 & Swi with BLUE color LED
 			Delay();
 		}
-		if(GPIO_PORTF_DATA_R == 0x01) //if SW2 is Pressed
-		{
-			GPIO_PORTD_DATA_R = 0x08; //PD3 to be turned ON
-			GPIO_PORTF_DATA_R = GREEN; //Checking Switch 2 with GREEN color LED
-			Delay();
-		}
-		GPIO_PORTF_DATA_R = 0x11;
+		else
+			if((GPIO_PORTF_DATA_R &= 0x10) == 0x00) //if SW1 is Pressed
+			{
+				GPIO_PORTD_DATA_R |= 0x04; //PD2 to be turned ON
+				GPIO_PORTF_DATA_R |= RED; //Checking Switch 1 with RED color LED
+				Delay();
+			}
+			else
+				if((GPIO_PORTF_DATA_R &= 0x01) == 0x00) //if SW2 is Pressed
+				{
+					GPIO_PORTD_DATA_R |= 0x08; //PD3 to be turned ON
+					GPIO_PORTF_DATA_R |= GREEN; //Checking Switch 2 with GREEN color LED
+					Delay();
+				}
+		GPIO_PORTF_DATA_R = 0x00;
+		Delay();
 	}
 }
