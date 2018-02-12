@@ -16,7 +16,7 @@ Embedded Systems Lab 3 - 17-01-2018
 
 	/*directives definition*/
 	.equ Open_File, 0x66		;SWI_Open to open file
-	.equ Read_String, 0x6a		;SWI_RdStr to print string
+	.equ Read_String, 0x6a		;SWI_RdStr to read string from a file
 	.equ Close_File, 0x68		;SWI_Close to close file
 	.equ Halt_Exec, 0x11		;SWI_Exit to halt execultion			
 	.equ Display_String, 0x02	;to display string on STDOUT
