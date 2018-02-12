@@ -21,7 +21,7 @@ Embedded Systems Lab 5 - 31-01-2018
 /*DATA SECTION*/
 	/*labels being used*/
 	.equ STCounter,	250		;Short timer counter as 250 (as SUB takes 1 cycle and Branch takes 3 cycles)
-	.equ LTCounter,	250		;Large timer counter
+	.equ LTCounter,	1000		;Large timer counter
 	.equ SEG_DISPLAY, 0x200	;SWI code to pass R0 to 8 SEGMENT Display in Embest Plugin
 	.equ ZERO,	0xED		;8 Segment code for 0
 	.equ ONE,	0x60 		;8 Segment code for 1

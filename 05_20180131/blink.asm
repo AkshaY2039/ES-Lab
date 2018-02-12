@@ -56,7 +56,7 @@ Blink
 	movlw	MaxCount	; reload	
 	movwf	BLNKCNT		; with 50
 	movlw	Green		;
-	xorwf	PORTB,F		; Toggle green LED
+	xorwf	PORTB, F	; Toggle green LED
 
 BlinkEnd		 
 	return
