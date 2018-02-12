@@ -3,7 +3,8 @@
 						(ii) using interrupt method
 	Note: Max Value that Reload Register can store for SysTick is 8388607 i.e. 2^23 - 1
 			Larger values may work ONCE in the logic analyser but not on board for sure
-			So to do 0.2s we might be using another loop.*/
+			So to do 0.2s we might be using another loop.
+*/
 
 #include "..\..\..\TM4C_Common\tm4c123gh6pm.h"
 #include "..\..\..\TM4C_Common\PLL.h"
