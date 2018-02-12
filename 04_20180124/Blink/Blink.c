@@ -34,8 +34,10 @@ void PortF_Init(void)
 	GPIO_PORTF_DEN_R = 0x1F;			// 7) enable digital I/O on PF4-0
 }
 
+/*Variable to store LED Color Code*/
 unsigned long Led;
 
+/*Function to give a delay*/
 void Delay(void)
 {
 	unsigned long volatile time;
@@ -44,6 +46,7 @@ void Delay(void)
 		time--;
 }
 
+/*main function*/
 int main(void)
 {
 	PortF_Init();	//Port F Initialziation
