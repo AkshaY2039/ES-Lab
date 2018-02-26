@@ -16,6 +16,6 @@
 *.dep
 
 # Notes for Time Being
-*.ppt
-*.pptx
-*.pdf
+# *.ppt
+# *.pptx
+# *.pdf
