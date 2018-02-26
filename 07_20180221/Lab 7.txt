@@ -1,7 +1,7 @@
 Embedded Systems Lab 7 : 21 Feb 2018
 
 Discussions:
-	PIC Config DataSheet
+	Interfacing DC Motor with Tiva TM4C
 
 Assignment 2 - Part 2 - Traffic Light using PIC and Timer2
 Deadline : 03 Mar 2018

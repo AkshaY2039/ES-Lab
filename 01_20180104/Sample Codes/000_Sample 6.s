@@ -1,3 +1,7 @@
+@------------------------------------------------------------------------------------------------
+@ This program is an example for Pre-indexing and Post-indexing.
+@------------------------------------------------------------------------------------------------
+
 MOV R1, #0x1500	;Base Register for memory address
 MOV R5, #20		;Content To Store
 MOV R2, #10		;Number Of Times to Store (Loop Counter)

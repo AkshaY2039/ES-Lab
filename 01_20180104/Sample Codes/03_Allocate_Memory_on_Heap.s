@@ -1,3 +1,7 @@
+@------------------------------------------------------------------------------------------------
+@ This program is an example for allocating and de-allocating memory blocks on heap
+@------------------------------------------------------------------------------------------------
+
 MOV R0, #20			@get 20 bytes (comments can also be written using ';' or @ AND '/*...*/' for multiline)
 SWI SWI_MeAlloc		;Allocate 20 bytes in the Heap
 LDR R1, =Address	;Load contents of label Address into R1

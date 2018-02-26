@@ -1,3 +1,7 @@
+@---------------------------------------------------------
+@ This program is an example for Logical Shif and Rotate
+@---------------------------------------------------------
+
 MOV R0, #2				;Initialize R0 = 2
 MOV R1, #20				;Initialize R1 = 20
 NOP						;No Operation

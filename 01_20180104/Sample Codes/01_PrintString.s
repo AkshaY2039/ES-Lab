@@ -1,3 +1,7 @@
+@------------------------------------------------------------------------------------------------
+@ This program is an example for printing string to STDOUT
+@------------------------------------------------------------------------------------------------
+
 /*Label being Used*/
 MyString: .asciz "Welcome to ARMSIM\n"	;ASCII string terminated by NULL
 

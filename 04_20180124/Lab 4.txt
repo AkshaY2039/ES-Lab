@@ -1,8 +1,8 @@
 Embedded Systems Lab 4 : 24 Jan 2018
 
 Discussions:
-		Keil
-		
+	Keil
+	Tiva TM4C123GH6PM Board Port Initialization
 
 Assignment 1 - Part 2 - Timer
 Deadline : 31 Jan 2018

@@ -4,3 +4,6 @@ Discussions:
 	The ARM Instruction Set Architecture :
 
 	Cycles taken by different Instructions :
+
+	Note: Assembly languages are generally case-insensitive on mnemonic and register level. So Load --> ldr / LDR, 
+		you can use r0 or R0 to denote register 0.

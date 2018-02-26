@@ -1,3 +1,7 @@
+@------------------------------------------------------------------------------------------------
+@ This program is an example for printing character to STDOUT
+@------------------------------------------------------------------------------------------------
+
 .equ SWI_PrChr, 0x00		;SWI for printing character to STDOUT
 
 MOV R0, #'A			;Move character 'A' into R0

@@ -1,3 +1,7 @@
+@------------------------------------------------------------------------------------------------
+@ This program is an example for Looping, Addition, Subtraction, Store, Read from Location (Load) and Compare.
+@------------------------------------------------------------------------------------------------
+
 MOV R1, #0x2000		;Initialize R1 = HEX 2000
 MOV R3, #5			;Initialize R3 = 5
 MOV R5, #20			;Initialize R5 = 20

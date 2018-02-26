@@ -10,10 +10,10 @@
 #include "..\..\..\TM4C_Common\tm4c123gh6pm.h"
 #include "..\..\..\TM4C_Common\PLL.h"
 
-#define BLUE	0x04	//BLUE for LEDs connected to PortF
+#define BLUE	0x0F	//BLUE for LEDs connected to PortF
 #define basic_delay_period	40000	//ticks for 500us
 
-unsigned long up_lim = 20000;		//upper limit to for looping delay
+unsigned long up_lim = 2000;		//upper limit to for looping delay
 unsigned long lo_lim = 100;			//lower limit to for looping delay
 unsigned int loop_lim;				//loop limit for current looping delay
 int loop_gradient = 200;			//increment factor for every looping delay

@@ -1,0 +1,10 @@
+Embedded Systems Lab 6 : 07 Feb 2018
+
+Discussions:
+	Learning GPIO port interface in TIVA uC (3x3 LED with TIVA)
+	Using Systick Timer in TIVA uC
+
+Assignment 2 - Part 1 - Traffic Light using PIC and SubRoutine Delays
+Deadline : 28 Feb 2018
+	1.	Develop and demonstrate traffic light operation using PIC assembly. Create suitable delays using a sub-routine.
+	4.	Compute the Interrupt handling time for Timer2.

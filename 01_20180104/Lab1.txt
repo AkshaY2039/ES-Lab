@@ -1,13 +1,91 @@
-Embedded Systems Lab 1 : 4 Jan 2018
+Embedded Systems Lab 1 : 04 Jan 2018
 
 Discussions:
 	RISC : Reduced Instruction Set Computation
-	CISC : Complete Instruction Set Computation
-	About ARM (Advanced RISC Machine)
 
-	ARMSIM:
+	CISC : Complete Instruction Set Computation
+
+
+	About ARM (Advanced RISC Machine)
+		-	ARM is a 
+		-	ARM family includes 8/16/32/64 bits processors
+		-	Different versions of ARM processors share the same machine Instruction Set
+		-	We will be studying 32-bit ARM processor using a ARM Simulator application, ARMSim#
+
+	Main features of the ARM Instruction Set:
+		-	All instructions are 32 bits long. ARM processor supports 8/16/32/64 bits data values
+		-	ARM processor executes instructions in  a 3-Stage pipeline.
+			--	FETCH --> DECODE --> EXECUTE
+		-	Most of the ARM instructions executed in a single cycle. (the exceptions we will look ahead)
+		-	Every instruction can be CONDITIONALLY EXECUTED.
+		-	ARM uses LOAD/STORE ARCHITECTURE
+			--	Data processing instructions act only on registers (Register-Register Architecture) because 
+				Memory Access impacts the performance.
+				---	Three operand format
+				---	Combined ALU and barrel shifter for high speed bit manipulation
+			--	Specific memory access instructions with powerful auto-indexing addressing modes.
+				---	32 bit and 8 bit data types and also 16 bit data types on ARM Architecture v4.
+				---	Flexible multiple register load and store instructions
+
+	Operating modes in ARM:
+		-	User (unprivileged mode under which most tasks run)
+		-	FIQ (entered when a high priority (fast) interrupt is raised)
+		-	IRQ (entered when a low priority (normal) interrupt is raised)
+		-	Supervisor (entered on reset and when a Software Interrupt instruction is executed)
+		-	Abort (used to handle memory access violations)
+		-	Undef (used to handle undefined instructions)
+
+	Addressing:
+		-	ARM includes capability to address byte, half word, and full word (32 bits)
+		-	ARM instructions are always 32 bits in size, data can be of 8/16/32 bits
+		-	This means, byte addresses of instructions start from 0 and increase in steps 4: 0, 4, 8, and so on
+		-	Program Counter is initialized to 0 when the  processor is reset, and increases in steps of 4
+		-	This means, the least significant 2 bits of PC are always 0
+		-	This reduces the number of bits required to store address and address offset of instructions with in programs; 
+		-	Such optimization does not work for data!
+
+	Registers and Register Banks:
+		-	In all we have 37 Registers:
+			--	18 General Purpose Registers: r0 – r12, r8fm-r12fm (fm stands of FIQ Mode)
+			--	6 Stack Pointer (sp): sp-xx
+			--	6 Link Register (lr): lr-xx
+			--	1 Program Counter: pc
+			--	1 Current Program Status Register: cpsr
+			--	5 Saved Program Status Register: spsr-xx
+		-	These are divided into banks based on Operation modes as follows (some are common, some exclusive to a bank) :
+			| Bank	| User Mode	| GPR				| Stack Ptr	| Link Reg	| Pgm Ctr	| CPSR	| SPSR		| Total	|
+			| um	| User		| r0-r12			| sp-um		| lr-um		|	pc		| cpsr	| 	-----	|	17	|
+			| sm	| Supervisor| r0-r7, r8fm-r12fm	| sp-sm		| lr-sm		|	pc		| cpsr	| spsr-sm	|	18	|
+			| fm	| FIQ		| r0-r12			| sp-fm		| lr-fm		|	pc		| cpsr	| spsr-fm	|	18	|
+			| nm	| Undefined	| r0-r12			| sp-nm		| lr-nm		|	pc		| cpsr	| spsr-nm	|	18	|
+			| im	| IRQ		| r0-r12			| sp-im		| lr-im		|	pc		| cpsr	| spsr-im	|	18	|
+			| am	| Abort		| r0-r12			| sp-am		| lr-am		|	pc		| cpsr	| spsr-am	|	18	|
+		-	Program Status Registers:
+			|31	|30	|29	|28	|27	|26	|25	|24	|23	|22	|21	|20	|19	|18	|17	|16	|15	|14	|13	|12	|11	|10	|09	|08	|07	|06	|05	|04	|03	|02	|01	|00	|
+			| N	| Z	| C	| V	| *	|		| *	|			U	n	d	e	f	|	i	n	e	d				| I	| F	| *	|	m	o	d	e	|
+			|			f					|				s				|				x				|				c				|
+			--	Condition code flags
+					N = Negative result from ALU 
+					Z = Zero result from ALU
+					C = ALU operation Carried out
+					V = ALU operation oVerflowed
+			--	Interrupt Disable bits.
+					I  = 1: Disables the IRQ.
+					F = 1: Disables the FIQ.
+			--	Mode bits: Specify the processor mode
+				| Value	| Mode		|
+				| Value	| Mode		|
+				| Value	| Mode		|
+				| Value	| Mode		|
+				| Value	| Mode		|
+				| Value	| Mode		|
+				| Value	| Mode		|
+				| Value	| Mode		|
+
+	ARMSIM#: © R. N. Horspool, W. D. Lyons, M. Serra Department of Computer Science, University of Victoria
 		The ARMSim# is an aid for learning the operation of the ARM architecture. It does not implement every
-		feature that can be found on the ARM. Some of the more important LIMITATIONS are listed below.
+		feature that can be found on the ARM.
+		Some of the more important LIMITATIONS are listed below.
 		1. The ARM architecture supports both little‐endian and big‐endian access to memory. The ARM‐
 			Sim# supports only the little‐endian format (the same as the Intel architecture which hosts the ARMSim#).
 		2. The ARM architecture has a special mode of execution called ‘Thumb mode’ which is intended

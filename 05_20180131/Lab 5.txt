@@ -1,7 +1,7 @@
 Embedded Systems Lab 5 : 31 Jan 2018
 
 Discussions:
-	Tiva TM4C123GH6PM Board Port Initialization
+	Learning GPIO port interface in TIVA uC (LED & switch interface with TIVA)
 
 Assignment 1 - Part 3 - Plugin and Timer
 Deadline : 21 Feb 2018

@@ -1,3 +1,8 @@
+@------------------------------------------------------------------------------------------------
+@ This program is an example for addressing in simple logic of addition to a stored memory
+@ location and then referring to it.
+@------------------------------------------------------------------------------------------------
+
 /*DATA SECTION*/
 	/*Directives*/
 	.equ Halt_Exec, 0x11		;Deifne Halt_Exec as 0x11 i.e. SWI_Halt
