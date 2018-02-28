@@ -4,8 +4,11 @@ Discussions:
 	Software Interrupts: SWI are kind of System calls in ARM which help with I/O operations using plugin in ARMSim.
 	Syntax for SWI:	SWI <OP_CODE>;
 					e.g. SWI 0x00
+	Note: SWI operations greater than 0xFF as currently used for the Embest board Plug‐In
+
 	Following are the predefined codes for different SWI in ARMSim:
 	|	OP_CODE	|				Description			|		Inputs			|		Outputs			| EQU(used in samples)	|
+	|-----------------------------------------------------------------------------------------------------------------------|
 	|										BASIC SWI OPERATIONS FOR I/O in ARMSim											|
 	|	0x00	| Display Character to STDOUT		| R0: The Character		| Char on STDOUT		|		SWI_PrChr		|
 	|	0x02	| Display String to STDOUT			| R0: address of (ASCIZ)|						|						|
@@ -27,6 +30,36 @@ Discussions:
 	|			|									| R1: Integer			| 						|		SWI_PrInt		|
 	|	0x6c	| Read Integer from a File			| R0: File Handle		| R0: The Integer		|		SWI_RdInt		|
 	|	0x6d	| Get the current time (ticks)		|						| R0: #ticks (ms)		|		SWI_Timer		|
+	|-----------------------------------------------------------------------------------------------------------------------|
+	|										SWI Operations for Embest board Plug‐In											|
+	|	0x200	| Light up the 8‐Segment Display.	| R0: 8‐segment Pattern	| The appropriate 		|						|
+	|			|									|						| segments light up to 	|		SWI_8Seg		|
+	|			|									|						| display a number or a	|						|
+	|			|									|						| character				|						|
+	|	0x201	| Light up the two LEDs.			| R0: LED Pattern		| Either the left LED is|		SWI_LED			|
+	|			|									| (0x01 = 01 in binary	| on, or the right, or	|						|
+	|			|									| so Right LED glows)	| both					|						|
+	|	0x202	| Check if one of the Black			| None					| R0: Black Button		|		SWI_BlkBtn		|
+	|			| Buttons has been pressed.			| 						| Pattern (0x01 - Right)|						|
+	|	0x203	| Check if one of the 16 Blue		| None					| R0: Blue Button		|		SWI_BluBtn		|
+	|			| Buttons has been pressed.			| 						| Pattern (btn-1 -> 2^1)|						|
+	|	0x204	| Display a string on the			| R0: x-coord (0-39)	| String is displayed	|		SWI_LCDStr		|
+	|			| 40x15 LCD screen.					| R1: y-coord (0-14)	| starting at the given	|						|
+	|			|									| R2: Address of a NULL	| position of the LCD	|						|
+	|			|									| terminated ASCII		| screen.				|						|
+	|			|									| string. (0,0)=topleft	|						|						|
+	|	0x205	| Display an integer on the			| R0: x-coord (0-39)	| Integer is displayed	|		SWI_LCDInt		|
+	|			| 40x15 LCD screen.					| R1: y-coord (0-14)	| starting at the given	|						|
+	|			|									| R2: Integer to print	| position of the LCD	|						|
+	|			|									| 		(0,0)=topleft	| screen.				|						|
+	|	0x206	| Clear the display on				| None					| Blank LCD screen.		|		SWI_LCDClr		|
+	|			| 40x15 LCD screen.					|						|						|						|
+	|	0x207	| Display a character on the		| R0: x-coord (0-39)	| Character is displayed|		SWI_LCDChr		|
+	|			| 40x15 LCD screen.					| R1: y-coord (0-14)	| starting at the given	|						|
+	|			|									| R2: Character to print| position of the LCD	|						|
+	|			|									| 		(0,0)=topleft	| screen.				|						|
+	|	0x208	| Clear one line in the dis-		| R0: y-coord (0-14)	| Blank line on 		|		SWI_LCDLin		|
+	|			| play on the LCD screen			|	(line number)		| LCD screen.			|						|
 
 Assignment 1 - Part 1 - File handling using ARM ISA
 Deadline : 24 Jan 2018

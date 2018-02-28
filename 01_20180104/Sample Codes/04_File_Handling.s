@@ -103,4 +103,4 @@ END:
 					.align
 	OutFileHandle:	.word 0								;Declaring location for OutFileHandle
 	NEW_LINE:		.asciz "\n"								;to have a new line
-	STRING: .skip 100									; allocate a size of 100 bytes
+	STRING: .skip 100									; allocate a size of 100 bytes (which is max that can be read by SWI_RdStr)
