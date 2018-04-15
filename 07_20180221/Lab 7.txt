@@ -4,7 +4,7 @@ Discussions:
 	Interfacing DC Motor with Tiva TM4C
 
 Assignment 2 - Part 2 - Traffic Light using PIC and Timer2
-Deadline : 03 Mar 2018
+Deadline : 07 Mar 2018
 	2.	Develop and demonstrate traffic light operation using PIC assembly. Create suitable delays using Timer2.
 	3.	Create a PIC program that does both (1) & (2) with 2 different coordinated traffic lights. 
 		The two lights are at an intersection servicing two orthogonal roads.
