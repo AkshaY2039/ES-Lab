@@ -7,8 +7,8 @@
 			So to do 0.2s we might be using another loop.
 */
 
-#include "..\..\..\TM4C_Common\tm4c123gh6pm.h"
-#include "..\..\..\TM4C_Common\PLL.h"
+#include "..\..\TM4C_Common\tm4c123gh6pm.h"
+#include "..\..\TM4C_Common\PLL.h"
 
 #define BLUE	0x0F	//BLUE for LEDs connected to PortF
 #define basic_delay_period	40000	//ticks for 500us

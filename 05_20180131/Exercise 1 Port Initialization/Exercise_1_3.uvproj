@@ -45,7 +45,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\</OutputDirectory>
-          <OutputName>Exercise_1_2_X</OutputName>
+          <OutputName>Exercise_1_3</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -170,7 +170,7 @@
             <Capability>1</Capability>
             <DriverSelection>4097</DriverSelection>
           </Flash1>
-          <bUseTDR>0</bUseTDR>
+          <bUseTDR>1</bUseTDR>
           <Flash2>BIN\lmidk-agdi.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
@@ -406,9 +406,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>Exercise_1_2_X.c</FileName>
+              <FileName>Exercise_1_3.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Exercise_1_2_X.c</FilePath>
+              <FilePath>.\Exercise_1_3.c</FilePath>
             </File>
             <File>
               <FileName>driverlib.lib</FileName>

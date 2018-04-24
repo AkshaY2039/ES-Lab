@@ -1,31 +1,13 @@
 /*
-	Exercise 1.2 : Write a program to perform the following operations
-					|	SW1=PD0, SW2=PD1	|	LED1:PD2, LED2:PD3		|
-					|	SW1 pressed			|	LED1 blinking			|
-					|	SW2 pressed			|	LED2 blinking			|
-					|	SW1 and SW2 pressed	|	LED1 and LED2 blinking	|
-					|	No SW pressed		|	LED off					|
+	Exercise 2 : Using diode logic provide digital high and low to the corresponding GPIO pins
+				to achieve the following in the circuit shown above
+				(i) Toggle the LEDs on and off in row or column, using on-board switch SW1
+				(ii) Toggle the direction of lighting using SW2
+	Circuit for consideration :
+		
 */
 
-// LaunchPad built-in hardware
-// SW2 right switch is negative logic PF0 on the Launchpad
-// RED LED connected to PF1 on the Launchpad
-// BLUE LED connected to PF2 on the Launchpad
-// GREEN LED connected to PF3 on the Launchpad
-// SW1 left switch is negative logic PF4 on the Launchpad
-
-// Color    LED(s) PortF
-// DARK     ---    0
-// RED      R--    0x02
-// BLUE     --B    0x04
-// GREEN    -G-    0x08
-// YELLOW   RG-    0x0A
-// SKY BLUE -GB    0x0C
-// WHITE    RGB    0x0E
-// PINK     R-B    0x06
-
 #include "..\..\TM4C_Common\tm4c123gh6pm.h"
-
 #define second	1454480	//1 second = 1454480
 #define DARK	0x00	//DARK for LEDs connected to PortF
 #define RED		0x02	//RED for LEDs connected to PortF
@@ -59,9 +41,10 @@ void PortD_Init(void)
 	volatile unsigned long delay;
 	SYSCTL_RCGC2_R |= 0x00000008;		// 1) activate clock for Port D
 	delay = SYSCTL_RCGC2_R;				// allow time for clock to start
+	// only PF0 needs to be unlocked, other bits can't be locked
 	GPIO_PORTD_AMSEL_R &= ~0x00;		// 3) disable analog on PD
 	GPIO_PORTD_PCTL_R = 0x00000000;		// 4) PCTL GPIO on PD
-	GPIO_PORTD_DIR_R |= 0x0C;			// 5) PD0, PD3 as output
+	GPIO_PORTD_DIR_R |= 0x0C;			// 5) PD30, PD3 as output
 	GPIO_PORTD_AFSEL_R &= ~0x0C;		// 6) disable alt funct on PD2, PD3
 	GPIO_PORTD_DEN_R = 0x0C;			// 7) enable digital I/O on PD2, PD3
 }

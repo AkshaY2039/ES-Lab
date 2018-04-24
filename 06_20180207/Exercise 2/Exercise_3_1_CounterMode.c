@@ -1,11 +1,11 @@
 /*
 	Exercise 3.1.i : Using Systick timer, generate a square wave of 500us and observe in debugger
-					You can connect GPIO pin to ear phone to listen tuning fork sound.
-								(i) Using counter method
-							*/
+						You can connect GPIO pin to ear phone to listen tuning fork sound.
+							(i) Using counter method
+*/
 
-#include "..\..\..\TM4C_Common\tm4c123gh6pm.h"
-#include "..\..\..\TM4C_Common\PLL.h"
+#include "..\..\TM4C_Common\tm4c123gh6pm.h"
+#include "..\..\TM4C_Common\PLL.h"
 
 /*Function Prototypes here or say function Declarations*/
 void PortA_Init(void);				// function for Initialization of Port A for sound Outputs

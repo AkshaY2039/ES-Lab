@@ -45,7 +45,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\</OutputDirectory>
-          <OutputName>Exercise_1_2</OutputName>
+          <OutputName>Exercise_1_1</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -170,7 +170,7 @@
             <Capability>1</Capability>
             <DriverSelection>4097</DriverSelection>
           </Flash1>
-          <bUseTDR>0</bUseTDR>
+          <bUseTDR>1</bUseTDR>
           <Flash2>BIN\lmidk-agdi.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
@@ -406,6 +406,11 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
+              <FileName>Exercise_1_1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Exercise_1_1.c</FilePath>
+            </File>
+            <File>
               <FileName>driverlib.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\..\TM4C_Common\driverlib.lib</FilePath>
@@ -419,11 +424,6 @@
               <FileName>tm4c123gh6pm.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\TM4C_Common\tm4c123gh6pm.h</FilePath>
-            </File>
-            <File>
-              <FileName>Exercise_1_2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Exercise_1_2.c</FilePath>
             </File>
           </Files>
         </Group>

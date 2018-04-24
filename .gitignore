@@ -7,8 +7,8 @@
 *.lnp
 *.map
 *.o
-*.uvgui.dcrus
-*.uvgui_dcrus.bak
+*.uvgui.*
+*.uvgui_*.bak
 *.uvopt
 *_uvopt.bak
 *_uvproj.bak
